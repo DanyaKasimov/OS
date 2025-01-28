@@ -1,0 +1,13 @@
+Matched file:
+Name: ./6_1/File1.txt
+Size: 5 bytes
+Creation Time: Mon Jan 27 22:38:55 2025
+Permissions: 644
+Inode: 6236927
+-------------------------
+Name: ./6_2/File2.txt
+Size: 5 bytes
+Creation Time: Mon Jan 27 22:38:55 2025
+Permissions: 644
+Inode: 6236933
+-------------------------
