@@ -16,4 +16,8 @@ add_executable(OS
         5/Main_5.h
         6/Main_6.cpp
         6/Main_6.h
+        7/Main_7.cpp
+        7/Main_7.h
+        8/Main_8.cpp
+        8/Main_8.h
 )
