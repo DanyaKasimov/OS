@@ -22,31 +22,24 @@ int main() {
         print_time();
         printf("\n");
         exit(0);
-    } else if (pid1 > 0) {
-        pid2 = fork();
-
-        if (pid2 == 0) {
-            printf("Дочерний процесс 2: PID=%d, PPID=%d, Время: ", getpid(), getppid());
-            print_time();
-            printf("\n");
-            exit(0);
-        } else if (pid2 > 0) {
-            wait(NULL);
-            wait(NULL);
-
-            printf("Родительский процесс: PID=%d, Время: ", getpid());
-            print_time();
-            printf("\n");
-
-            system("ps -x");
-        } else {
-            perror("Ошибка при втором вызове fork()");
-            exit(1);
-        }
-    } else {
-        perror("Ошибка при первом вызове fork()");
-        exit(1);
     }
+
+    pid2 = fork();
+
+    if (pid2 == 0) {
+        printf("Дочерний процесс 2: PID=%d, PPID=%d, Время: ", getpid(), getppid());
+        print_time();
+        printf("\n");
+        exit(0);
+    }
+
+    printf("Родительский процесс: PID=%d, Время: ", getpid());
+    print_time();
+    printf("\n");
+
+    system("ps -x");
+    wait(NULL);
+    wait(NULL);
 
     return 0;
 }
