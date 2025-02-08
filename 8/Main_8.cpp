@@ -8,7 +8,7 @@
 
 #define MAX_BYTES 255
 
-void search_in_file(const char *filename, const char *pattern, int pattern_length) {
+void search_in_file(const char *filename, const char *pattern, int pattern_length, int count) {
     int fd = open(filename, O_RDONLY);
     if (fd == -1) {
         perror("Ошибка открытия файла");
@@ -31,7 +31,7 @@ void search_in_file(const char *filename, const char *pattern, int pattern_lengt
 
     close(fd);
 
-    printf("PID: %d, Файл: %s, Просмотрено байт: %ld, Найдено совпадений: %d\n", getpid(), filename, total_bytes, matches);
+    printf("PID: %d, Файл: %s, Просмотрено байт: %ld, Найдено совпадений: %d, Номер процесса: %d\n", getpid(), filename, total_bytes, matches, count);
 }
 
 int main() {
@@ -69,7 +69,7 @@ int main() {
 
             pid_t pid = fork();
             if (pid == 0) {
-                search_in_file(filepath, pattern, pattern_length);
+                search_in_file(filepath, pattern, pattern_length, active_processes);
                 exit(0);
             } else if (pid > 0) {
                 active_processes++;
