@@ -23,12 +23,11 @@ void list_directory(const char *path) {
 }
 
 int main(int argc, char *argv[]) {
-    list_directory(".");
 
     if (argc < 2) {
         printf("Not enough arguments.\n");
     }
-
+    list_directory(".");
     list_directory(argv[1]);
 
     return 0;
